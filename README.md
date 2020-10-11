@@ -1,3 +1,39 @@
+# React JSON-Schema-Form Demo
+This demonstration uses react-JSON-Schema-Form to 
+generate a late-bound form to manage a collection accessed
+by a REST API. Our test data resembles that which could be
+a mailing list or contact list table.
+
+React JSON-Schema-Form drives the creation of a UI form 
+whose features and widgets 
+
+## Getting Started
+
+### Prerequisite Libraries
+
+1. React >= 16
+1. node.js (e.g. v14.13.0 used here)
+2. yarn (e.g. 1.22.5 )
+
+You will need Docker, as well, to run a REST server of test
+persons.
+
+### Installation
+
+The package.json specifies read-json-schema-form -`@rjsf/core`,
+our chosen them, and material-ui theme - `@material-ui/core`,
+with `@material-ui/icons.`
+
+The project uses the airbnb eslint style guide as well. This
+can be annoying at times, but it proves to mitigate 
+more-annoying runtime errors.
+
+Grab the dependecies:
+
+`$ yarn install`
+
+---------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
