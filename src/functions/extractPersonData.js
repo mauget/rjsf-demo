@@ -1,7 +1,6 @@
 export default function extractPersonData(data) {
     return data.map((v) => (
         {
-            key: v.id,
             id: v.id,
             lastName: v.lastName,
             firstName: v.firstName,

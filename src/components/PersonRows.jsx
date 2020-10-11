@@ -7,6 +7,12 @@ export default function PersonRows(props) {
     } = { ...props };
 
     return persons.map((v) => (
-        <PersonRow person={v} handleClose={handleClose} show={show} funcReflectId={funcReflectId} />
+        <PersonRow
+            key={v.id}
+            person={v}
+            handleClose={handleClose}
+            show={show}
+            funcReflectId={funcReflectId}
+        />
     ));
 }

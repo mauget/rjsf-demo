@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function PersonRow(props) {
-    const { show, person, funcReflectId } = { ...props };
+    const {
+        show, person, funcReflectId,
+    } = { ...props };
     const {
         id, firstName, lastName, email,
     } = { ...person };
@@ -27,6 +29,7 @@ PersonRow.propTypes = {
     // eslint-disable-next-line react/no-unused-prop-types
     show: PropTypes.func.isRequired,
     person: PropTypes.shape({
+        key: PropTypes.number,
         id: PropTypes.number,
         lastName: PropTypes.string,
         firstName: PropTypes.string,

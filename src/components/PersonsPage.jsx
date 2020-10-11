@@ -17,7 +17,6 @@ export default function PersonsPage() {
             const json = await res.json();
             await setPersons(extractPersonData(json));
         }
-
         fetchData()
             .then((r) => r);
     }, []);

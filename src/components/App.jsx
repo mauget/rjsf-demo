@@ -26,7 +26,7 @@ export default function App() {
                             color="primary"
                             onClick={handleStart}
                         >
-                            Start
+                            Edit Persons
                         </Button>
                     )
             }
