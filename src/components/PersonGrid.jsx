@@ -7,7 +7,7 @@ export default function PersonGrid(props) {
     const {
         persons, handleClose, show, funcReflectId,
     } = { ...props };
-    const tempPeeps = persons.slice(0, 9);
+
     return (
         <>
             <table>
@@ -22,7 +22,7 @@ export default function PersonGrid(props) {
                 </thead>
                 <tbody>
                     <PersonRows
-                        persons={tempPeeps}
+                        persons={persons}
                         handleClose={handleClose}
                         show={show}
                         funcReflectId={funcReflectId}
