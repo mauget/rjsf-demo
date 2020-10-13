@@ -1,16 +1,14 @@
-.App {
-  text-align: center;
-  /*background-color: #888888;*/
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  /*color: black;*/
-}
+/*.App {*/
+/*  text-align: center;*/
+/*  min-height: 100vh;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  align-items: center;*/
+/*  !*justify-content: center;*!*/
+/*  font-size: calc(10px + 2vmin);*/
+/*}*/
 
-/*.App-link {*/
+/*a {*/
 /*  color: #61dafb;*/
 /*}*/
 
@@ -24,4 +22,42 @@ td {
 
 th, caption {
   cursor: default;
+}
+
+/* ------- Model --------- */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position:fixed;
+  color: gray;
+  background-color: #E8E8E8;
+  width: 28rem;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-90%,-80%);
+  border-radius: 15px;
+  border: solid 2px gray;
+}
+
+.display-block {
+  display: flex;
+}
+
+.display-none {
+  display: none;
+}
+
+.form-template {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  flex: 1 0 0;
 }

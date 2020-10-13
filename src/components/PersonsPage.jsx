@@ -1,30 +1,35 @@
 import React, { useEffect, useState } from 'react';
-import { PERSONS_URL } from '../constants/constants';
 import PersonGrid from './PersonGrid';
-import extractPersonData from '../functions/extractPersonData';
 import Modal from './Modal';
-import FormTemplate1 from './FormTemplate1';
+import FormTemplate1 from './form/FormTemplate1';
+import fetchData from '../service/fetchData';
+import fetchPerson from '../service/fetchPerson';
 
 export default function PersonsPage() {
     const [persons, setPersons] = useState([]);
-
     const [show, setShow] = useState(false);
     const [id, setId] = useState(0);
+    const [formData, setFormData] = useState({});
+    const [wantRefresh, setWantRefresh] = useState(false);
 
     useEffect(() => {
-        async function fetchData() {
-            const res = await fetch(`${PERSONS_URL}/persons`);
-            const json = await res.json();
-            await setPersons(extractPersonData(json));
-        }
-        fetchData()
-            .then((r) => r);
-    }, []);
+        fetchData(setPersons)
+            .then(() => {
+                setWantRefresh(false);
+            });
+    }, [wantRefresh]);
+
+    useEffect(() => {
+        fetchPerson(id, setFormData)
+            .then(() => {
+                // setWantRefresh(true);
+            });
+    }, [id]);
 
     const showModal = () => setShow(true);
 
     // In the future this would persist any request from the modal:
-    const handleClose = () => {
+    const handleCloseModal = () => {
         setShow(false);
     };
 
@@ -37,14 +42,14 @@ export default function PersonsPage() {
                 persons.length ? (
                     <PersonGrid
                         persons={persons}
-                        handleClose={handleClose}
+                        handleClose={handleCloseModal}
                         show={showModal}
                         funcReflectId={funcReflectId}
                     />
-                ) : (<div>Waiting for data</div>)
+                ) : (<div>Waiting ...</div>)
             }
-            <Modal handleClose={handleClose} show={show}>
-                <FormTemplate1 id={id} handleClose={handleClose} />
+            <Modal handleClose={handleCloseModal} show={show}>
+                <FormTemplate1 id={id} formData={formData} handleClose={handleCloseModal} />
             </Modal>
         </>
     );

@@ -26,8 +26,6 @@ export default function PersonRow(props) {
 }
 
 PersonRow.propTypes = {
-    // eslint-disable-next-line react/no-unused-prop-types
-    show: PropTypes.func.isRequired,
     person: PropTypes.shape({
         key: PropTypes.number,
         id: PropTypes.number,
