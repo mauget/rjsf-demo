@@ -42,16 +42,16 @@ th, caption {
   height: auto;
   top:50%;
   left:50%;
-  transform: translate(-90%,-80%);
+  transform: translate(-50%,-50%);
   border-radius: 15px;
   border: solid 2px gray;
 }
 
-.display-block {
+.modal-display {
   display: flex;
 }
 
-.display-none {
+.modal-hide {
   display: none;
 }
 

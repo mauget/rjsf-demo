@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import purple from '@material-ui/core/colors/purple';
 import Grid from '@material-ui/core/Grid';
 import PersonsPage from './PersonsPage';
+import { flexRowChild } from '../constants/constants';
 
 const theme = createMuiTheme({
     palette: {
@@ -17,7 +18,19 @@ const theme = createMuiTheme({
     },
 });
 
-// Exposed to testing
+export function AppBreadCrumbs() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <div style={flexRowChild}>
+                <a href="/">Home</a>
+            </div>
+            <div style={flexRowChild}>
+                <span>&nbsp;-&gt;&nbsp;List</span>
+            </div>
+        </div>
+    );
+}
+
 export default function App() {
     const [isStarted, setIsStarted] = useState(false);
 
@@ -28,6 +41,7 @@ export default function App() {
 
     return (
         <ThemeProvider theme={theme}>
+            <h1>Personnel</h1>
             <Grid
                 container
                 direction="column"
@@ -45,7 +59,7 @@ export default function App() {
                                 color="primary"
                                 onClick={handleStart}
                             >
-                                Edit Persons
+                                List Personnel
                             </Button>
                         )
                 }

@@ -3,7 +3,7 @@ export const schema1 = {
     type: 'object',
     description: 'person details',
     properties: {
-        // id: { type: 'string', hidden: true },
+        id: { type: 'integer', title: 'id' },
         firstName: { type: 'string', title: 'First Name', minLength: 1 },
         lastName: { type: 'string', title: 'Last Name', minLength: 2 },
         email: { type: 'string', title: 'EMail' },
@@ -16,7 +16,10 @@ export const schema1 = {
 };
 
 export const uiSchema = {
-    'ui:order': ['firstName', 'lastName', 'email'],
+    'ui:order': ['id', 'firstName', 'lastName', 'email'],
+    id: {
+
+    },
     firstName: {
         'ui.autoFocus': true,
         'ui.widget': 'text',

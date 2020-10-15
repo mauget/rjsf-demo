@@ -1,9 +1,24 @@
 import React, { useEffect, useState } from 'react';
+import Grid from '@material-ui/core/Grid';
 import PersonGrid from './PersonGrid';
 import Modal from './Modal';
-import FormTemplate1 from './form/FormTemplate1';
+import FormPersonTemplate from './form/FormPersonTemplate';
 import fetchData from '../service/fetchData';
 import fetchPerson from '../service/fetchPerson';
+import { flexRowChild } from '../constants/constants';
+
+function AppBreadCrumbs() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <div style={flexRowChild}>
+                <a href="/">Home</a>
+            </div>
+            <div style={flexRowChild}>
+                <span>&nbsp;-&gt;&nbsp;List</span>
+            </div>
+        </div>
+    );
+}
 
 export default function PersonsPage() {
     const [persons, setPersons] = useState([]);
@@ -36,8 +51,13 @@ export default function PersonsPage() {
     const funcReflectId = (idParam) => setId(idParam);
 
     return (
-        <>
-            <div style={{ margin: '2.0rem' }}><a href="/">Home</a></div>
+        <Grid
+            container
+            direction="column"
+            justify="flex-start"
+            alignItems="flex-start"
+        >
+            <AppBreadCrumbs />
             {
                 persons.length ? (
                     <PersonGrid
@@ -49,8 +69,8 @@ export default function PersonsPage() {
                 ) : (<div>Waiting ...</div>)
             }
             <Modal handleClose={handleCloseModal} show={show}>
-                <FormTemplate1 id={id} formData={formData} handleClose={handleCloseModal} />
+                <FormPersonTemplate formData={formData} handleClose={handleCloseModal} />
             </Modal>
-        </>
+        </Grid>
     );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
 import PersonRows from './PersonRows';
 import PersonRow from './PersonRow';
 
@@ -9,9 +10,14 @@ export default function PersonGrid(props) {
     } = { ...props };
 
     return (
-        <>
+        <Grid
+            container
+            direction="column"
+            justify="flex-start"
+            alignItems="flex-start"
+        >
             <table>
-                <caption>Persons</caption>
+                <caption><h2>List</h2></caption>
                 <thead>
                     <tr>
                         <th>id</th>
@@ -35,7 +41,7 @@ export default function PersonGrid(props) {
                     </tr>
                 </tfoot>
             </table>
-        </>
+        </Grid>
     );
 }
 
