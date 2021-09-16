@@ -1,11 +1,12 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
 import Form from '@rjsf/material-ui';
+import PropTypes from 'prop-types';
 import { schema1, uiSchema } from '../../jsonschema/schema1';
 import FormButtonBar from './FormButtonBar';
 
 export default function FormPersonTemplate(props) {
-    const { handleClose, formData } = { ...props };
+    const { handleClose, formData } = props;
     return (
         <Box style={{ margin: '1.0rem' }}>
             <Form
@@ -18,3 +19,8 @@ export default function FormPersonTemplate(props) {
         </Box>
     );
 }
+
+FormPersonTemplate.propTypes = {
+    handleClose: PropTypes.func.isRequired,
+    formData: PropTypes.shape({}).isRequired,
+};

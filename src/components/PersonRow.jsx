@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default function PersonRow(props) {
     const {
         show, person, funcReflectId,
-    } = { ...props };
+    } = props;
     const {
         id, firstName, lastName, email,
     } = { ...person };
@@ -26,6 +26,7 @@ export default function PersonRow(props) {
 }
 
 PersonRow.propTypes = {
+    show: PropTypes.bool.isRequired,
     person: PropTypes.shape({
         key: PropTypes.number,
         id: PropTypes.number,
@@ -33,6 +34,7 @@ PersonRow.propTypes = {
         firstName: PropTypes.string,
         email: PropTypes.string,
     }),
+    funcReflectId: PropTypes.string.isRequired,
 };
 
 PersonRow.defaultProps = {

@@ -1,8 +1,9 @@
 import Button from '@material-ui/core/Button';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const FormButtonBar = (props) => {
-    const { cancelFunc, updateFunc } = { ...props };
+export default function FormButtonBar(props) {
+    const { cancelFunc, updateFunc } = props;
     return (
         <div style={{ display: 'flex' }}>
             <Button
@@ -22,5 +23,9 @@ const FormButtonBar = (props) => {
             </Button>
         </div>
     );
+}
+
+FormButtonBar.propTypes = {
+    cancelFunc: PropTypes.func.isRequired,
+    updateFunc: PropTypes.shape({}).isRequired,
 };
-export default FormButtonBar;

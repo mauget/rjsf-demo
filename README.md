@@ -16,12 +16,19 @@ whose features and widgets
 2. yarn (e.g. 1.22.5 )
 
 You will need Docker, as well, to run a REST server of test
-persons.
+persons. 
+
+The service image is on DockerHub at `mauget/persons`.
+
+`docker run --name person-service --rm -p 3004:3000 mauget/person-service:latest`
+
+The REST service GET root is `/persons`, the port is `3004`.
+This rjsf demo project assumes that serivce is running as reacable.
 
 ### Installation
 
 The package.json specifies read-json-schema-form -`@rjsf/core`,
-our chosen them, and material-ui theme - `@material-ui/core`,
+our chosen them, and material-ui theme — `@material-ui/core`,
 with `@material-ui/icons.`
 
 The project uses the airbnb eslint style guide as well. This

@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import PersonRows from './PersonRows';
-import PersonRow from './PersonRow';
 
 export default function PersonGrid(props) {
     const {
         persons, handleClose, show, funcReflectId,
-    } = { ...props };
+    } = props;
 
     return (
         <Grid
@@ -37,7 +36,7 @@ export default function PersonGrid(props) {
                 <tfoot>
                     <tr>
                         <th scope="row">Totals</th>
-                        <th>{persons.length}</th>
+                        <th>{persons?.length}</th>
                     </tr>
                 </tfoot>
             </table>
@@ -45,10 +44,22 @@ export default function PersonGrid(props) {
     );
 }
 
-PersonRow.propTypes = {
-    persons: PropTypes.arrayOf(PropTypes.object),
+PersonGrid.propTypes = {
+    persons: PropTypes.arrayOf(
+        PropTypes.shape({
+            key: PropTypes.number,
+            id: PropTypes.number,
+            lastName: PropTypes.string,
+            firstName: PropTypes.string,
+            email: PropTypes.string,
+        }),
+    ),
+    handleClose: PropTypes.func,
+    show: PropTypes.bool.isRequired,
+    funcReflectId: PropTypes.string.isRequired,
 };
 
-PersonRow.defaultProps = {
+PersonGrid.defaultProps = {
     persons: [],
+    handleClose: () => {},
 };

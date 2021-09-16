@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * An abstract modal with hevhavior and visuals set by children and Modal.css
@@ -6,7 +7,7 @@ import React from 'react';
  * @returns {JSX.Element}
  */
 export default function Modal(props) {
-    const { show, children } = { ...props };
+    const { show, children } = props;
     const modality = show ? 'modal modal-display' : 'modal modal-hide';
     return (
         <div className={modality}>
@@ -16,3 +17,8 @@ export default function Modal(props) {
         </div>
     );
 }
+
+Modal.propTypes = {
+    show: PropTypes.bool.isRequired,
+    children: PropTypes.element.isRequired,
+};
